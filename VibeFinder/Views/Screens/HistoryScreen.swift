@@ -4,9 +4,18 @@ struct HistoryScreen: View {
     let searchViewModel: SearchViewModel
     let libraryViewModel: LibraryViewModel
     @State private var path = NavigationPath()
+    private let contentAnimation = Animation.easeInOut(duration: 0.22)
 
     var body: some View {
         @Bindable var libraryViewModel = libraryViewModel
+        let searchText = Binding(
+            get: { libraryViewModel.historySearchText },
+            set: { newValue in
+                withAnimation(contentAnimation) {
+                    libraryViewModel.historySearchText = newValue
+                }
+            }
+        )
 
         NavigationStack(path: $path) {
             ZStack {
@@ -24,6 +33,7 @@ struct HistoryScreen: View {
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity.combined(with: .scale(scale: 0.98)))
                 } else if libraryViewModel.visibleHistory.isEmpty {
                     VStack {
                         EmptyStateView(
@@ -35,6 +45,7 @@ struct HistoryScreen: View {
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity.combined(with: .scale(scale: 0.98)))
                 } else {
                     List {
                         ForEach(libraryViewModel.visibleHistory) { record in
@@ -46,7 +57,9 @@ struct HistoryScreen: View {
                             .buttonStyle(.plain)
                             .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                                 Button(role: .destructive) {
-                                    libraryViewModel.deleteHistoryRecord(record)
+                                    withAnimation(contentAnimation) {
+                                        libraryViewModel.deleteHistoryRecord(record)
+                                    }
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
@@ -54,16 +67,20 @@ struct HistoryScreen: View {
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                             .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
+                            .transition(.opacity.combined(with: .move(edge: .trailing)))
                         }
                     }
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                     .background(Color.clear)
+                    .transition(.opacity)
                 }
             }
             .navigationTitle("History")
-            .searchable(text: $libraryViewModel.historySearchText, prompt: "Search history")
+            .searchable(text: searchText, prompt: "Search history")
             .tint(AppTheme.accent)
+            .animation(contentAnimation, value: libraryViewModel.visibleHistory.map(\.id))
+            .animation(contentAnimation, value: libraryViewModel.historySortOption)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     sortMenu
@@ -91,7 +108,9 @@ struct HistoryScreen: View {
         Menu {
             ForEach(HistorySortOption.allCases) { option in
                 Button {
-                    libraryViewModel.historySortOption = option
+                    withAnimation(contentAnimation) {
+                        libraryViewModel.historySortOption = option
+                    }
                 } label: {
                     Label(option.title, systemImage: libraryViewModel.historySortOption == option ? "checkmark" : option.iconName)
                 }

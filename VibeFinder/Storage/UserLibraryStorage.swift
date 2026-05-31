@@ -5,6 +5,7 @@ protocol UserLibraryStorage {
     func saveFavorites(_ items: [MediaItem]) async throws
     func loadHistory() async throws -> [SearchRecord]
     func saveHistory(_ records: [SearchRecord]) async throws
+    func clearLibraryData() async throws
 }
 
 actor UserDefaultsLibraryStorage: UserLibraryStorage {
@@ -44,6 +45,11 @@ actor UserDefaultsLibraryStorage: UserLibraryStorage {
         try save(records, forKey: historyKey)
     }
 
+    func clearLibraryData() async throws {
+        defaults.removeObject(forKey: favoritesKey)
+        defaults.removeObject(forKey: historyKey)
+    }
+
     private func load<T: Decodable>(_ type: T.Type, forKey key: String) throws -> T? {
         guard let data = defaults.data(forKey: key) else {
             return nil
@@ -80,5 +86,10 @@ actor InMemoryLibraryStorage: UserLibraryStorage {
 
     func saveHistory(_ records: [SearchRecord]) async throws {
         history = records
+    }
+
+    func clearLibraryData() async throws {
+        favorites = []
+        history = []
     }
 }

@@ -3,9 +3,18 @@ import SwiftUI
 struct FavoritesScreen: View {
     let viewModel: LibraryViewModel
     @State private var path = NavigationPath()
+    private let contentAnimation = Animation.easeInOut(duration: 0.22)
 
     var body: some View {
         @Bindable var viewModel = viewModel
+        let searchText = Binding(
+            get: { viewModel.favoritesSearchText },
+            set: { newValue in
+                withAnimation(contentAnimation) {
+                    viewModel.favoritesSearchText = newValue
+                }
+            }
+        )
 
         NavigationStack(path: $path) {
             ZStack {
@@ -23,6 +32,7 @@ struct FavoritesScreen: View {
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity.combined(with: .scale(scale: 0.98)))
                 } else if viewModel.visibleFavorites.isEmpty {
                     VStack {
                         EmptyStateView(
@@ -34,6 +44,7 @@ struct FavoritesScreen: View {
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .transition(.opacity.combined(with: .scale(scale: 0.98)))
                 } else {
                     ScrollView {
                         LazyVStack(spacing: 12) {
@@ -46,20 +57,29 @@ struct FavoritesScreen: View {
                                         isFavorite: true,
                                         showsMatchBadge: false,
                                         showsCategoryBadge: true,
-                                        onFavoriteTap: { viewModel.toggleFavorite(item) }
+                                        onFavoriteTap: {
+                                            withAnimation(contentAnimation) {
+                                                viewModel.toggleFavorite(item)
+                                            }
+                                        }
                                     )
                                 }
                                 .buttonStyle(.plain)
+                                .transition(.opacity.combined(with: .scale(scale: 0.98)))
                             }
                         }
                         .padding(16)
                     }
                     .background(Color.clear)
+                    .transition(.opacity)
                 }
             }
             .navigationTitle("Favorites")
-            .searchable(text: $viewModel.favoritesSearchText, prompt: "Search favorites")
+            .searchable(text: searchText, prompt: "Search favorites")
             .tint(AppTheme.accent)
+            .animation(contentAnimation, value: viewModel.visibleFavorites.map(\.id))
+            .animation(contentAnimation, value: viewModel.favoriteCategoryFilter)
+            .animation(contentAnimation, value: viewModel.favoriteSortOption)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     filterMenu
@@ -80,14 +100,18 @@ struct FavoritesScreen: View {
     private var filterMenu: some View {
         Menu {
             Button {
-                viewModel.favoriteCategoryFilter = nil
+                withAnimation(contentAnimation) {
+                    viewModel.favoriteCategoryFilter = nil
+                }
             } label: {
                 Label("All", systemImage: viewModel.favoriteCategoryFilter == nil ? "checkmark" : "line.3.horizontal.decrease")
             }
 
             ForEach(MediaCategory.allCases) { category in
                 Button {
-                    viewModel.favoriteCategoryFilter = category
+                    withAnimation(contentAnimation) {
+                        viewModel.favoriteCategoryFilter = category
+                    }
                 } label: {
                     Label(category.title, systemImage: viewModel.favoriteCategoryFilter == category ? "checkmark" : category.iconName)
                 }
@@ -101,7 +125,9 @@ struct FavoritesScreen: View {
         Menu {
             ForEach(FavoriteSortOption.allCases) { option in
                 Button {
-                    viewModel.favoriteSortOption = option
+                    withAnimation(contentAnimation) {
+                        viewModel.favoriteSortOption = option
+                    }
                 } label: {
                     Label(option.title, systemImage: viewModel.favoriteSortOption == option ? "checkmark" : option.iconName)
                 }

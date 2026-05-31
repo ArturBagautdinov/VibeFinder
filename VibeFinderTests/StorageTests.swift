@@ -44,4 +44,24 @@ struct StorageTests {
         #expect(try await storage.loadFavorites() == [item])
         #expect(try await storage.loadHistory() == [record])
     }
+
+    @Test func storageClearsSavedLibraryData() async throws {
+        let keyPrefix = "VibeFinderTests.\(UUID().uuidString)"
+        let defaults = UserDefaults.standard
+        defer {
+            defaults.removeObject(forKey: "\(keyPrefix).favorites")
+            defaults.removeObject(forKey: "\(keyPrefix).history")
+        }
+
+        let storage = UserDefaultsLibraryStorage(defaults: defaults, keyPrefix: keyPrefix)
+        let item = MediaItem.testItem()
+        let record = SearchRecord(prompt: "dark mystery", results: [item])
+
+        try await storage.saveFavorites([item])
+        try await storage.saveHistory([record])
+        try await storage.clearLibraryData()
+
+        #expect(try await storage.loadFavorites().isEmpty)
+        #expect(try await storage.loadHistory().isEmpty)
+    }
 }

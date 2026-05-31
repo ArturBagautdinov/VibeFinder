@@ -3,6 +3,8 @@ import SwiftUI
 
 struct ProfileScreen: View {
     let authViewModel: AuthViewModel
+    let libraryViewModel: LibraryViewModel
+    @State private var isSignOutConfirmationPresented = false
 
     var body: some View {
         NavigationStack {
@@ -39,7 +41,7 @@ struct ProfileScreen: View {
                     .modernSurfaceCard()
 
                     Button(role: .destructive) {
-                        authViewModel.signOut()
+                        isSignOutConfirmationPresented = true
                     } label: {
                         HStack {
                             Label("Sign out", systemImage: "rectangle.portrait.and.arrow.right")
@@ -55,6 +57,18 @@ struct ProfileScreen: View {
             .appScreenBackground()
             .navigationTitle("Profile")
             .tint(AppTheme.accent)
+            .alert("Sign out?", isPresented: $isSignOutConfirmationPresented) {
+                Button("Cancel", role: .cancel) {}
+
+                Button("Sign out", role: .destructive) {
+                    Task {
+                        await libraryViewModel.clearSavedData()
+                        authViewModel.signOut()
+                    }
+                }
+            } message: {
+                Text("Favorites and search history stored on this device will be removed.")
+            }
         }
     }
 }

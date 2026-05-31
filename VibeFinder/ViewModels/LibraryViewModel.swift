@@ -94,6 +94,18 @@ final class LibraryViewModel {
         saveHistory()
     }
 
+    func clearSavedData() async {
+        favorites = []
+        history = []
+        favoritesSearchText = ""
+        historySearchText = ""
+        favoriteCategoryFilter = nil
+        favoriteSortOption = .recentlyAdded
+        historySortOption = .newestFirst
+
+        try? await storage.clearLibraryData()
+    }
+
     private func saveHistory() {
         let updatedHistory = history
         Task {
@@ -271,4 +283,3 @@ private extension SearchRecord {
             || results.contains { $0.matches(query) }
     }
 }
-

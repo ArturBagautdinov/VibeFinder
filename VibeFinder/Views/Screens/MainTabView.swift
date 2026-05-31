@@ -22,7 +22,7 @@ struct MainTabView: View {
                     Label("History", systemImage: "clock")
                 }
 
-            ProfileScreen(authViewModel: authViewModel)
+            ProfileScreen(authViewModel: authViewModel, libraryViewModel: libraryViewModel)
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }
