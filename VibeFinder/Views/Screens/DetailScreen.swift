@@ -43,7 +43,7 @@ struct DetailScreen: View {
                     Text(item.shortDescription)
                         .font(.body)
 
-                    DetailBlock(title: "Why it fits", text: item.reason)
+                    DetailBlock(title: showsMatchBadge ? "Why it fits" : "What stands out", text: item.reason)
 
                     if !item.platforms.isEmpty {
                         DetailChips(title: "Where to watch or play", values: item.platforms)
