@@ -23,6 +23,14 @@ struct SearchScreen: View {
                 }
                 .padding(16)
             }
+            .onTapGesture {
+                UIApplication.shared.sendAction(
+                    #selector(UIResponder.resignFirstResponder),
+                    to: nil,
+                    from: nil,
+                    for: nil
+                )
+            }
             .appScreenBackground()
             .navigationTitle("Vibe Finder")
             .tint(AppTheme.accent)

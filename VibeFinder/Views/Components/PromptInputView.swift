@@ -38,7 +38,7 @@ struct PromptInputView: View {
             }
             .frame(height: 120)
 
-            Button(action: onSubmit) {
+            Button(action: submitAndDismissKeyboard) {
                 Label(isLoading ? "Searching" : "Find matches", systemImage: isLoading ? "hourglass" : "sparkle")
                     .frame(maxWidth: .infinity)
             }
@@ -47,6 +47,16 @@ struct PromptInputView: View {
             .controlSize(.large)
             .disabled(isLoading || text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
         }
+    }
+
+    private func submitAndDismissKeyboard() {
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil,
+            from: nil,
+            for: nil
+        )
+        onSubmit()
     }
 }
 

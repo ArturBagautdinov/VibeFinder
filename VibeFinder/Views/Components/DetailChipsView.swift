@@ -13,6 +13,7 @@ struct DetailChips: View {
             FlowLayout(items: values) { value in
                 Text(value)
                     .font(.caption)
+                    .lineLimit(1)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 6)
                     .background(AppTheme.elevatedSurface, in: Capsule())
@@ -21,4 +22,3 @@ struct DetailChips: View {
         }
     }
 }
-
