@@ -33,7 +33,7 @@ The project was built as a complete mini-product and demonstrates modern iOS dev
 
 ### AI-Powered Prompt Search
 
-https://github.com/user-attachments/assets/79d3c68e-99dd-4eaf-83df-e2f434d15b6f
+https://github.com/user-attachments/assets/435c3e13-e530-4b9d-8085-f442294f2211
 
 Users can enter a short prompt describing what they want to watch or play. VibeFinder uses an LLM-powered recommendation flow to understand the request and return structured media suggestions.
 
@@ -41,7 +41,7 @@ The app can understand category intent. For example, if the prompt asks for a ga
 
 ### Categorized Recommendation Results
 
-https://github.com/user-attachments/assets/b8c98b65-b1b2-40ec-af76-9fc9b8ed3903
+https://github.com/user-attachments/assets/9e9e0250-e6c1-4d07-a3d4-9e56f2596958
 
 Recommendations are displayed as clean media cards grouped by category.
 
@@ -118,8 +118,7 @@ The History tab supports:
 
 ### Authentication
 
-**Video placeholder:**  
-`(Insert video here: launch the app, show the authentication screen, create an account with email, password, and password confirmation, then sign out and sign back in.)`
+https://github.com/user-attachments/assets/39edaf65-7b03-48ad-beca-ab9eb1a88eb5
 
 The app includes Firebase Authentication.
 
@@ -454,9 +453,47 @@ LLM assistance was used to support development, while architecture decisions, im
 
 ## Full Demo Video
 
+https://github.com/user-attachments/assets/fbc204cd-0cc3-4408-9d69-a0b8349b8254
 
 ---
 
 ## Project Status
 
 VibeFinder is a complete educational iOS mini-product built to demonstrate modern SwiftUI app development with real networking, local persistence, dependency injection, UIKit integration, authentication, LLM-powered recommendations, and automated tests.
+
+---
+
+## Possible Improvements
+
+Future versions of VibeFinder could include:
+
+### Personalized Recommendations
+
+Add user preference learning based on saved favorites, skipped recommendations, and search history. This would allow the app to improve suggestions over time.
+
+### User-Specific Cloud Storage
+
+Move favorites and search history from local-only storage to cloud storage, so users can sync their data across multiple devices.
+
+### Recommendation Feedback
+
+Allow users to mark recommendations as:
+
+- Perfect match
+- Not relevant
+- Already watched / played
+- Not interested
+
+This feedback could be used to refine future LLM prompts.
+
+### Offline Mode
+
+Cache previous recommendations and posters more deeply, so users can browse saved favorites and history without an internet connection.
+
+### Push Notifications
+
+Add optional reminders for saved recommendations, such as "watch later" or "play this weekend".
+
+### Richer Detail Pages
+
+Improve detail screens with ratings, trailers, screenshots, cast information, similar titles, and external links.
