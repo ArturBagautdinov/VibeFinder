@@ -3,6 +3,7 @@ import SwiftUI
 struct AuthScreen: View {
     let viewModel: AuthViewModel
     @FocusState private var focusedField: AuthField?
+    private let modeAnimation = Animation.spring(response: 0.42, dampingFraction: 0.86)
 
     private enum AuthField: Hashable {
         case email
@@ -71,6 +72,10 @@ struct AuthScreen: View {
                                 .onSubmit {
                                     focusedField = nil
                                 }
+                                .transition(.asymmetric(
+                                    insertion: .move(edge: .top).combined(with: .opacity),
+                                    removal: .move(edge: .top).combined(with: .opacity)
+                                ))
                         }
 
                         if case .error(let message) = viewModel.state {
@@ -83,22 +88,44 @@ struct AuthScreen: View {
                         Button {
                             Task { await viewModel.submit() }
                         } label: {
-                            Label(viewModel.isRegisterMode ? "Create account" : "Sign in", systemImage: "person.crop.circle.badge.checkmark")
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 36)
+                            ZStack {
+                                if viewModel.isRegisterMode {
+                                    Label("Create account", systemImage: "person.crop.circle.badge.checkmark")
+                                        .transition(.authModeTextTransition)
+                                } else {
+                                    Label("Sign in", systemImage: "person.crop.circle.badge.checkmark")
+                                        .transition(.authModeTextTransition)
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 36)
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(AppTheme.accent)
                         .disabled(viewModel.state == .loading)
 
-                        Button(viewModel.isRegisterMode ? "Already have an account" : "Create an account") {
+                        Button {
                             focusedField = nil
-                            viewModel.toggleMode()
+                            withAnimation(modeAnimation) {
+                                viewModel.toggleMode()
+                            }
+                        } label: {
+                            ZStack {
+                                if viewModel.isRegisterMode {
+                                    Text("Already have an account")
+                                        .transition(.authModeTextTransition)
+                                } else {
+                                    Text("Create an account")
+                                        .transition(.authModeTextTransition)
+                                }
+                            }
+                            .frame(height: 22)
                         }
                         .buttonStyle(.plain)
                         .foregroundStyle(AppTheme.accent)
                     }
                     .modernSurfaceCard(padding: 18)
+                    .animation(modeAnimation, value: viewModel.isRegisterMode)
 
                     Spacer()
                 }
@@ -130,6 +157,15 @@ private extension View {
                 RoundedRectangle(cornerRadius: AppTheme.smallCornerRadius)
                     .stroke(AppTheme.border.opacity(0.28))
             )
+    }
+}
+
+private extension AnyTransition {
+    static var authModeTextTransition: AnyTransition {
+        .asymmetric(
+            insertion: .move(edge: .bottom).combined(with: .opacity),
+            removal: .move(edge: .top).combined(with: .opacity)
+        )
     }
 }
 
