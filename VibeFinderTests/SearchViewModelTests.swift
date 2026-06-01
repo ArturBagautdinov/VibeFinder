@@ -74,5 +74,20 @@ struct SearchViewModelTests {
         #expect(viewModel.results == record.results)
         #expect(viewModel.state == .content)
     }
-}
 
+    @Test func clearSearchDataResetsPromptResultsAndState() {
+        let libraryViewModel = LibraryViewModel(storage: InMemoryLibraryStorage())
+        let viewModel = SearchViewModel(
+            service: ConfigurableMediaSuggestionService(result: .success([])),
+            libraryViewModel: libraryViewModel
+        )
+        let record = SearchRecord(prompt: "space mystery", results: [.testItem(title: "Outer Wilds", category: .game)])
+
+        viewModel.openHistoryRecord(record)
+        viewModel.clearSearchData()
+
+        #expect(viewModel.prompt.isEmpty)
+        #expect(viewModel.results.isEmpty)
+        #expect(viewModel.state == .empty)
+    }
+}

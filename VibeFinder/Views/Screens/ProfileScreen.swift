@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ProfileScreen: View {
     let authViewModel: AuthViewModel
+    let searchViewModel: SearchViewModel
     let libraryViewModel: LibraryViewModel
     @State private var isSignOutConfirmationPresented = false
 
@@ -62,6 +63,7 @@ struct ProfileScreen: View {
 
                 Button("Sign out", role: .destructive) {
                     Task {
+                        searchViewModel.clearSearchData()
                         await libraryViewModel.clearSavedData()
                         authViewModel.signOut()
                     }

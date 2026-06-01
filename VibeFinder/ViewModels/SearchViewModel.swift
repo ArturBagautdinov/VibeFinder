@@ -63,6 +63,14 @@ final class SearchViewModel {
         state = record.results.isEmpty ? .empty : .content
     }
 
+    func clearSearchData() {
+        searchTask?.cancel()
+        searchTask = nil
+        prompt = ""
+        results = []
+        state = .empty
+    }
+
     private func sections(for items: [MediaItem]) -> [MediaSection] {
         MediaCategory.allCases.compactMap { category in
             let categoryItems = items.filter { $0.category == category }
