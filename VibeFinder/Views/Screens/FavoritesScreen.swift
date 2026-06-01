@@ -6,7 +6,9 @@ struct FavoritesScreen: View {
     private let contentAnimation = Animation.easeInOut(duration: 0.22)
 
     var body: some View {
+        
         @Bindable var viewModel = viewModel
+        
         let searchText = Binding(
             get: { viewModel.favoritesSearchText },
             set: { newValue in

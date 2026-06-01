@@ -182,7 +182,7 @@ final class MediaShareViewController: UIViewController {
         configuration.image = UIImage(systemName: systemImage)
         configuration.imagePadding = 8
         configuration.baseForegroundColor = UIColor(AppTheme.accent)
-        configuration.baseBackgroundColor = UIColor(AppTheme.accentSoft)
+        configuration.baseBackgroundColor = UIColor.gray
         configuration.cornerStyle = .large
 
         let button = UIButton(configuration: configuration)
