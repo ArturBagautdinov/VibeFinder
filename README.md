@@ -33,7 +33,25 @@ The project was built as a complete mini-product and demonstrates modern iOS dev
 
 ### AI-Powered Prompt Search
 
+<table>
+  <tr>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 06 13" src="https://github.com/user-attachments/assets/a0f3f68b-4338-4cf7-95e9-ed98eee3aed8" />
+    </td>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 05 34" src="https://github.com/user-attachments/assets/931e7871-ee0b-4cbb-8aec-62c4f07ee6d6" />
+    </td>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 05 25" src="https://github.com/user-attachments/assets/fce8f3cd-ac7b-4d6b-8dcc-2f35d46df0cd" />
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  
 https://github.com/user-attachments/assets/435c3e13-e530-4b9d-8085-f442294f2211
+
+</div>
 
 Users can enter a short prompt describing what they want to watch or play. VibeFinder uses an LLM-powered recommendation flow to understand the request and return structured media suggestions.
 
@@ -41,7 +59,25 @@ The app can understand category intent. For example, if the prompt asks for a ga
 
 ### Categorized Recommendation Results
 
+<table>
+  <tr>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 10 13" src="https://github.com/user-attachments/assets/4835ade2-7a86-458f-8745-afe04bc11ce5" />
+    </td>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 10 21" src="https://github.com/user-attachments/assets/d08fdaa5-bab4-42c5-bcba-a5316e39c785" />
+    </td>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 10 26" src="https://github.com/user-attachments/assets/015e6914-8d15-4e76-9adc-d058cfcb290f" />
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  
 https://github.com/user-attachments/assets/9e9e0250-e6c1-4d07-a3d4-9e56f2596958
+
+</div>
 
 Recommendations are displayed as clean media cards grouped by category.
 
@@ -58,7 +94,25 @@ Each card includes:
 
 ### Media Details
 
+<table>
+  <tr>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 01 49" src="https://github.com/user-attachments/assets/3eefefb8-30fb-4731-85e3-975a82d8bdfa" />
+    </td>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 02 04" src="https://github.com/user-attachments/assets/f35efaad-c764-4b6a-b983-dc4e3ba35358" />
+    </td>
+    <td width="33%">
+       <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 02 15" src="https://github.com/user-attachments/assets/0e4bb061-a608-438c-a45a-38cce43bb387" />
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  
 https://github.com/user-attachments/assets/10f28a39-8a6d-4bf7-a3c0-e63c21b97750
+
+</div>
 
 Each recommendation has a detailed screen with richer information about the selected media item.
 
@@ -76,7 +130,19 @@ The detail screen includes:
 
 ### Favorites
 
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/bc733e35-2271-4cc7-8feb-3079973aa097"
+    alt="Screenshot"
+    width="350"
+  />
+</p>
+
+<div align="center">
+  
 https://github.com/user-attachments/assets/845165ee-cdac-4049-ad89-c31734f050b1
+
+</div>
 
 Users can save recommendations to Favorites and return to them later.
 
@@ -84,7 +150,25 @@ Favorites are persisted locally and restored after app restart.
 
 ### Favorites Search, Filtering, and Sorting
 
+<table>
+  <tr>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 17 41" src="https://github.com/user-attachments/assets/144b4569-e006-46bd-a66d-a17291efa2c5" />
+    </td>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 17 46" src="https://github.com/user-attachments/assets/18382622-9d63-45cb-9056-e7468b751a9c" />
+    </td>
+    <td width="33%">
+       <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 17 56" src="https://github.com/user-attachments/assets/f5bf2b75-fce0-4ea4-93af-b1d9c2c372e3" />
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  
 https://github.com/user-attachments/assets/3c04c4cd-15bd-442f-b114-5b4e01f2a241
+
+</div>
 
 The Favorites tab supports:
 
@@ -97,7 +181,19 @@ The Favorites tab supports:
 
 ### Search History
 
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/f078419f-3f14-4559-b5c7-3610e12ff026"
+    alt="Screenshot"
+    width="350"
+  />
+</p>
+
+<div align="center">
+
 https://github.com/user-attachments/assets/45990410-ae32-46a7-a77f-ade62d5077ee
+
+</div>
 
 Every successful prompt is saved into local search history.
 
@@ -105,7 +201,25 @@ History records allow users to revisit previous prompts and their generated reco
 
 ### History Search, Sorting, Restore, and Delete
 
+<table>
+  <tr>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 24 24" src="https://github.com/user-attachments/assets/468ef0bb-ad1b-4c08-8dee-67788494aba7" />
+    </td>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 24 38" src="https://github.com/user-attachments/assets/4a855288-ff92-41ee-8c85-110c9321430e" />
+    </td>
+    <td width="33%">
+       <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 25 00" src="https://github.com/user-attachments/assets/ae13fde5-4964-4de5-948b-d7214be4c662" />
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  
 https://github.com/user-attachments/assets/8fd5ec97-c8df-417b-82f8-a6682db2ba12
+
+</div>
 
 The History tab supports:
 
@@ -118,7 +232,25 @@ The History tab supports:
 
 ### Authentication
 
+<table>
+  <tr>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 27 17" src="https://github.com/user-attachments/assets/789b4ef2-f2aa-4845-968b-be4d38962ccf" />
+    </td>
+    <td width="33%">
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 27 24" src="https://github.com/user-attachments/assets/3bbacc22-79af-49b0-b9d1-7202454996f5" />
+    </td>
+    <td width="33%">
+       <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 28 08" src="https://github.com/user-attachments/assets/3f2f8cb6-ed3b-48c0-86fe-356c805f2327" />
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  
 https://github.com/user-attachments/assets/39edaf65-7b03-48ad-beca-ab9eb1a88eb5
+
+</div>
 
 The app includes Firebase Authentication.
 
@@ -132,7 +264,19 @@ Authentication supports:
 
 ### UIKit Share Screen
 
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/598f5145-5d2a-43be-aadc-e7df13289c5a"
+    alt="Screenshot"
+    width="350"
+  />
+</p>
+
+<div align="center">
+  
 https://github.com/user-attachments/assets/bbe32b7f-4687-4ac0-be82-b0d833128d4a
+
+</div>
 
 VibeFinder includes UIKit integration inside SwiftUI through a custom share experience.
 
@@ -453,7 +597,11 @@ LLM assistance was used to support development, while architecture decisions, im
 
 ## Full Demo Video
 
+<div align="center">
+  
 https://github.com/user-attachments/assets/fbc204cd-0cc3-4408-9d69-a0b8349b8254
+
+</div>
 
 ---
 
