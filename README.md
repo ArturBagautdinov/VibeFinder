@@ -36,7 +36,7 @@ The project was built as a complete mini-product and demonstrates modern iOS dev
 <table>
   <tr>
     <td width="33%">
-      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 06 13" src="https://github.com/user-attachments/assets/a0f3f68b-4338-4cf7-95e9-ed98eee3aed8" />
+      <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 12 02 46" src="https://github.com/user-attachments/assets/2aee2cc1-3d72-4f05-b469-e3e3dc64cf4e" />
     </td>
     <td width="33%">
       <img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-06-01 at 11 05 34" src="https://github.com/user-attachments/assets/931e7871-ee0b-4cbb-8aec-62c4f07ee6d6" />
