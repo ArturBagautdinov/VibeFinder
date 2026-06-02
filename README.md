@@ -591,6 +591,8 @@ The following LLM-based tools were used during development:
 
 - ChatGPT and Codex for planning, architecture review, refactoring support, debugging support, test planning, and README generation
 
+- OpenAI API / OpenAI Swift SDK inside the app for prompt understanding and recommendation generation
+
 LLM assistance was used to support development, while architecture decisions, implementation details, testing structure, and final integration were reviewed and adapted manually.
 
 ---
