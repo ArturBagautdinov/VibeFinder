@@ -6,7 +6,7 @@ final class URLSessionImageDataLoadingService: ImageDataLoadingService, Sendable
     private let session: URLSession
     private let cache: ImageDataCache
 
-    init(session: URLSession = .shared, cache: ImageDataCache = ImageDataCache()) {
+    nonisolated init(session: URLSession = .shared, cache: ImageDataCache = ImageDataCache()) {
         self.session = session
         self.cache = cache
     }

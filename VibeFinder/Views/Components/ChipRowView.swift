@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FlowLayout<Content: View>: View {
+struct ChipRowView<Content: View>: View {
     let items: [String]
     let content: (String) -> Content
 

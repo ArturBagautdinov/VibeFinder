@@ -10,7 +10,7 @@ struct DetailChips: View {
                 .font(.headline)
                 .foregroundStyle(AppTheme.ink)
 
-            FlowLayout(items: values) { value in
+            ChipRowView(items: values) { value in
                 Text(value)
                     .font(.caption)
                     .lineLimit(1)
